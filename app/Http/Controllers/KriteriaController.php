@@ -23,7 +23,7 @@ class KriteriaController extends Controller
     {
         $request->validate([
             'nama_kriteria' => 'required',
-            'bobot' => 'required',
+            'bobot_kriteria' => 'required',
             'jenis_kriteria' => 'required|in:cost,benefit',
         ]);
         Kriteria::create($request->all());
