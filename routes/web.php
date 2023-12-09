@@ -7,6 +7,7 @@ use App\Http\Controllers\DecisionMatrixController;
 use App\Http\Controllers\NormalisasiController;
 use App\Http\Controllers\ResultController;
 use App\Models\Alternatif;
+use League\CommonMark\Extension\DescriptionList\DescriptionListExtension;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,4 @@ Route::resource('/data-alternatif', AlternatifController::class);
 Route::resource('/decision-matrix', DecisionMatrixController::class);
 Route::get('/normalisasi', [NormalisasiController::class, 'index'])->name('normalisasi.index');
 Route::get('/score', [ResultController::class, 'index'])->name('score.index');
+// Route::get('/some/route', [DecisionMatrixController::class, 'create'])->name('some.route');
