@@ -36,7 +36,7 @@ class DecisionMatrixController extends Controller
                 }
         
                 // Ambil nama kriteria untuk header tabel
-                $kriteriaNames = DB::table('table_kriteria')->pluck('nama_kriteria', 'id')->toArray();
+                $kriteriaNames = DB::table('kriteria')->pluck('nama_kriteria', 'id')->toArray();
         
                 // Kirim data ke view
                 return view('waspas.indexDecisionMatrix', compact('matrixTable', 'kriteriaNames'));
