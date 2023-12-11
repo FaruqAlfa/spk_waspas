@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kriteria;
 use Illuminate\Http\Request;
 
+
 class KriteriaController extends Controller
 {
     public function index()
@@ -43,10 +44,10 @@ class KriteriaController extends Controller
     {
         $request->validate([
             'nama_kriteria' => 'required',
-            'bobot' => 'required',
+            'bobot_kriteria' => 'required',
             'jenis_kriteria' => 'required|in:cost,benefit',
         ]);
-        $kriteria = Kriteria::where('id', $id)->frist();
+        $kriteria = Kriteria::where('id', $id)->first();
         $kriteria->nama_kriteria = $request->get('nama_kriteria');
         $kriteria->bobot_kriteria = $request->get('bobot_kriteria');
         $kriteria->jenis_kriteria = $request->get('jenis_kriteria');
