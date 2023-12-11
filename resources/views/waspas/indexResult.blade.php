@@ -1,28 +1,36 @@
 @extends('master')
 
-@section('content')
+@section('title', 'Index')
+
+@section('main-content')
+<div class="p-4 border border-purple mt-14 dark:border-none shadow-md rounded-lg bg-gray-100 dark:bg-secondary">
     <div class="container">
-        <div class="pull-left px-6 py-2 text-center">
-            <p class="text-2xl font-bold">Score dan Ranking</p>
+        <div class="pull-left px-6 py-2">
+            <div class="text-primary dark:text-purple m-4 font-semibold text-2xl tracking-wide">Score dan Ranking</div>
         </div>
-        <br>
         @if(!empty($waspasScores))
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-3">
-            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-white uppercase bg-[#726274] dark:text-white">
+        <div class="relative overflow-x-auto shadow-md rounded-lg md:mx-20">
+            <table class="w-full text-sm">
+                <thead class="text-xs text-primary dark:text-purple uppercase bg-purple dark:bg-table-head">
                     <tr>
-                        <th>Ranking</th>
-                        <th>Alternatif</th>
-                        <th>Score</th>
+                        <th scope="col" class="px-6 py-3">
+                            Ranking
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Alternatif
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Score
+                        </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-xs md:text-base">
                     @foreach($ranking as $rank => $idAlternatif)
-                        <tr class="bg-white border-b dark:bg-white dark:border-gray-700">
-                            <th class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-gray-900">{{$rank + 1}}</th>
-                            <th class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-gray-900">{{$alternatifNames[$idAlternatif]}}</th>
-                            <th class="py-2 font-medium text-gray-900 whitespace-nowrap dark:text-gray-900">{{$waspasScores[$idAlternatif]}}</th>
-                        </tr>
+                    <tr class="bg-gray-100 dark:bg-primary border-b border-primary dark:border-purple last:border-0 text-primary dark:text-purple">
+                        <td class="text-center py-4">{{$rank + 1}}</th>
+                        <td class="text-center py-4">{{$alternatifNames[$idAlternatif]}}</th>
+                        <td class="text-center py-4">{{$waspasScores[$idAlternatif]}}</th>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>
@@ -31,4 +39,5 @@
             <p>Tidak ada data Decision Matrix yang tersimpan.</p>
         @endif
     </div>
+</div>
 @endsection

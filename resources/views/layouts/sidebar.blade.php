@@ -16,27 +16,10 @@
       </div>
       <div class="flex items-center">
         <div class="flex items-center ml-3">
-          <div>
-            <button type="button" class="flex text-sm mr-6 bg-gray-800 rounded-full focus:ring-2 focus:ring-purple" aria-expanded="false" data-dropdown-toggle="dropdown-user">
-              <span class="sr-only">Open user menu</span>
-              <img class="w-10 h-10 rounded-full" src="" alt="user photo">
-            </button>
+          <div class="my-5">
+            
           </div>
-          <div class="z-50 hidden my-4 text-base list-none border border-purple bg-purple divide-y divide-gray-100 rounded" id="dropdown-user">
-            <div class="px-4 py-3" role="none">
-              
-            </div>
-            <ul class="bg-gray-100 dark:bg-primary" role="none">
-              <li>
-                <a href="" class="block px-4 py-2 text-sm text-primary dark:text-purple hover:text-primary hover:bg-dark-purple">
-                  <button>Logout</button>
-                </a>
-                <form id="logout-form" action="" method="POST" class="hidden">
-                  
-                </form>
-              </li>
-            </ul>
-          </div>
+          
         </div>
       </div>
     </div>

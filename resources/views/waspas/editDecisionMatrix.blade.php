@@ -1,6 +1,8 @@
 @extends('master')
 
-@section('content')
+@section('title', 'Index')
+
+@section('main-content')
     <div class="container">
         <h1>Edit Decision Matrix - {{ $alternatif->nama_alternatif }}</h1>
 
