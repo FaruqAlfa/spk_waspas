@@ -1,11 +1,14 @@
 @extends('master')
-@section('content')
+
+@section('title', 'Index')
+
+@section('main-content')
     <div class="flex flex-col items-center pb-10">
         <h5 class="mb-1 text-xl font-medium text-black dark:text-white py-3">Tambah Data Kriteria</h5>
         <div
             class="max-w-sm py-3 px-20 bg-[#726274] border border-gray-200 rounded-lg shadow dark:bg-[#726274] dark:border-gray-700">
             <div class="input-body">
-                @if ($errors->any())
+                {{-- @if ($errors->any())
                     <div class="alert alert-danger">
                         <strong>Whoops!</strong> There were some problems with your input.<br><br>
                         <ul>
@@ -14,7 +17,7 @@
                             @endforeach
                         </ul>
                     </div>
-                @endif
+                @endif --}}
                 <form method="post" action="{{ route('data-kriteria.store') }}" id="myForm" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group py-2">

@@ -1,6 +1,8 @@
 @extends('master')
 
-@section('content')
+@section('title', 'Index')
+
+@section('main-content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -8,7 +10,6 @@
                     @csrf
                     @foreach ($alternatif as $item)
                         @if (!$item->isUsed())
-                            <!-- Gunakan metode isUsed() untuk mengecek apakah id_alternatif telah digunakan -->
                             <div class="flex items-center justify-center">
                                 <a href="#"
                                     class="block max-w-sm p-6 bg-[#726274] border border-gray-200 rounded-lg shadow dark:bg-[#726274] dark:border-gray-700">

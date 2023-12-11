@@ -1,6 +1,8 @@
 @extends('master')
 
-@section('content')
+@section('title', 'Index')
+
+@section('main-content')
     <div class="container">
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
