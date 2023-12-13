@@ -32,10 +32,12 @@ class DecisionMatrixController extends Controller
             $matrixTable[$data->id_alternatif][$data->id_kriteria] = $data->value;
         }
 
-        $kriteria = Kriteria::all();
+        $queryKriteria = Kriteria::query();
+
+        $kriteria = $queryKriteria->with('decision_matrix')->get();
 
         // Ambil nama kriteria untuk header tabel
-        $kriteriaNames = DB::table('kriteria')->pluck('nama_kriteria', 'id')->toArray();
+        $kriteriaNames = $queryKriteria->pluck('nama_kriteria', 'id')->toArray();
 
         // Kirim data ke view
         return view('waspas.indexDecisionMatrix', compact('matrixTable', 'kriteriaNames', 'kriteria'));
