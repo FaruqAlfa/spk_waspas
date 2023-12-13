@@ -19,7 +19,7 @@ use App\Http\Controllers\ResultController;
 */
 
 Route::get('/', function () {
-    return view('master');
+    return view('welcome');
 });
 
 Route::resource('/data-kriteria', KriteriaController::class);

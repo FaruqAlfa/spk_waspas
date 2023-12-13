@@ -19,27 +19,26 @@ class DecisionMatrixController extends Controller
      */
     public function index()
     {
-                // Ambil semua data DecisionMatrix dari database
-                $decision_matrix = DecisionMatrix::all();
+        $decision_matrix = DecisionMatrix::all();
 
-                // Jika tidak ada data, kembalikan ke view dengan pesan
-                if ($decision_matrix->isEmpty()) {
-                    return view('waspas.indexDecisionMatrix')->with('error', 'Tidak ada data Decision Matrix yang tersimpan.');
-                }
-        
-                // Buat array untuk menyimpan data yang akan ditampilkan di view
-                $matrixTable = [];
-        
-                // Loop untuk menyusun data ke samping berdasarkan id_alternatif
-                foreach ($decision_matrix as $data) {
-                    $matrixTable[$data->id_alternatif][$data->id_kriteria] = $data->value;
-                }
-        
-                // Ambil nama kriteria untuk header tabel
-                $kriteriaNames = DB::table('kriteria')->pluck('nama_kriteria', 'id')->toArray();
-        
-                // Kirim data ke view
-                return view('waspas.indexDecisionMatrix', compact('matrixTable', 'kriteriaNames'));
+        if ($decision_matrix->isEmpty()) {
+            return view('waspas.indexDecisionMatrix')->with('error', 'Tidak ada data Decision Matrix yang tersimpan.');
+        }
+
+        $matrixTable = [];
+
+        // Loop untuk menyusun data ke samping berdasarkan id_alternatif
+        foreach ($decision_matrix as $data) {
+            $matrixTable[$data->id_alternatif][$data->id_kriteria] = $data->value;
+        }
+
+        $kriteria = Kriteria::all();
+
+        // Ambil nama kriteria untuk header tabel
+        $kriteriaNames = DB::table('kriteria')->pluck('nama_kriteria', 'id')->toArray();
+
+        // Kirim data ke view
+        return view('waspas.indexDecisionMatrix', compact('matrixTable', 'kriteriaNames', 'kriteria'));
     }
 
     /**
@@ -132,7 +131,7 @@ class DecisionMatrixController extends Controller
             $matrixTable[$data->id_kriteria] = $data->value;
         }
 
-        return view('waspas.editDecisionMatrix', compact('alternatif', 'kriteria', 'matrixTable'));
+        return $this->index()->with(compact('matrixTable', 'kriteria'));
     }
 
     /**
