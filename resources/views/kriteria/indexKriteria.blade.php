@@ -40,7 +40,7 @@
 <div class="p-4 border border-purple mt-14 dark:border-none shadow-md rounded-lg bg-gray-100 dark:bg-secondary">
     <div class="row">
         <div class="flex justify-between">
-            <div class="pull-left px-6 py-2">
+            <div class="px-6 py-2">
                 <div class="text-primary dark:text-purple m-4 font-semibold text-2xl tracking-wide">KRITERIA</div>
             </div>
             
@@ -119,19 +119,20 @@
                     </th> --}}
                 </tr>
             </thead>
-            @foreach ($kriteria as $Kriteria)
+            
             <tbody class="text-xs md:text-base">
             @if ($kriteria->isEmpty())
-                <tr>
+                <tr class="bg-gray-100 dark:bg-primary border border-primary dark:border-purple text-primary dark:text-purple">
                     <td colspan="6" class="dark:bg-primary text-center py-4 text-primary dark:text-purple">
                         List Kriteria Kosong
                     </td>
                 </tr>
             @else
-            <tr class="bg-gray-100 dark:bg-primary border-b border-primary dark:border-purple last:border-0 text-primary dark:text-purple">
-                <th scope="row" class="text-center py-4 font-medium whitespace-nowrap dark:text-white">
+            @foreach ($kriteria as $Kriteria)
+            <tr class="bg-gray-100 dark:bg-primary border-primary dark:border-purple text-primary dark:text-purple">
+                <td scope="row" class="text-center py-4 whitespace-nowrap dark:text-white">
                     {{ $Kriteria->id }}
-                </th>
+                </td>
                 <td class="text-center py-4">
                     {{ $Kriteria->nama_kriteria }}
                 </td>
@@ -144,7 +145,6 @@
                 <td class="py-4">
                     <div class="md:flex justify-around">
                         <div class="flex items-center">
-                            {{-- <a class="bg-[#E9E2D0] hover:bg-[#BEBAAE] text-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center" href="{{ route('data-kriteria.edit', $Kriteria->id) }}">Edit</a> --}}
                             <button data-modal-target="crud-modal-{{$Kriteria->id}}" data-modal-toggle="crud-modal-{{$Kriteria->id}}" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                                 Edit
                               </button>
@@ -223,9 +223,9 @@
                     </div>
                 </td>        
             </tr>
-            @endif
             </tbody>
             @endforeach
+            @endif
         </table>
     </div>
     <div class="flex pt-10 justify-end">

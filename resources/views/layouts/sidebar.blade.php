@@ -13,6 +13,9 @@
                <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
             </svg>
          </button>
+         <div href="#" class="flex ml-2 md:mr-24">
+          <span class="self-center text-xl md:ml-12 font-semibold sm:text-2xl whitespace-nowrap text-primary dark:text-purple">Sistem Pendukung Keputusan - WASPAS</span>
+         </div>
       </div>
       <div class="flex items-center">
         <div class="flex items-center ml-3">
