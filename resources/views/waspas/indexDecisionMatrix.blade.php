@@ -96,12 +96,14 @@
                                                         </thead>
                                                         <tbody>
                                                             @foreach ($kriteria as $kriteriaItem)
+                                                            {{-- @dd($kriteriaItem->toArray()) --}}
                                                             <tr class="bg-gray-100 dark:bg-primary border-b border-primary dark:border-purple last:border-0 text-primary dark:text-purple">
                                                                 <td scope="row" class="text-center py-4 font-medium whitespace-nowrap dark:text-white">
                                                                         {{ $kriteriaItem->nama_kriteria }}
                                                                     </td>
                                                                     <td scope="row" class="text-center py-4 font-medium whitespace-nowrap dark:text-white">
-                                                                        <input type="number" name="value[{{ $kriteriaItem->id }}]" value="value[{{ $kriteriaItem->id }}][]" class="bg-gray-50 w-20 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                                                        {{-- <input type="number" name="value[{{ $kriteriaItem->id }}]" value="value[{{ $kriteriaItem->id }}][]" class="bg-gray-50 w-20 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"> --}}
+                                                                        <input type="number" name="value[{{ $kriteriaItem->id }}]" value="{{ $kriteriaItem->bobot_kriteria }}" class="bg-gray-50 w-20 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
 
                                                                     </td>
                                                                 </tr>
